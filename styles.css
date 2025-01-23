@@ -37,11 +37,6 @@ header p {
     margin-top: 10px;
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
 /* Navigation Bar */
 nav {
     position: sticky;
@@ -92,19 +87,18 @@ nav a:hover {
 .hero-content {
     position: relative;
     z-index: 2;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero h2 {
     font-size: 3.5rem;
     margin-bottom: 15px;
-    animation: fadeIn 1.5s ease-in-out;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
     font-size: 1.6rem;
     margin-bottom: 30px;
-    animation: fadeIn 1.8s ease-in-out;
 }
 
 .cta-btn {
@@ -121,26 +115,34 @@ nav a:hover {
     transform: translateY(-5px);
 }
 
+/* Smooth Scroll Animation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll-to-Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.scroll-to-top:hover {
+    background-color: #005f73;
+    transform: scale(1.1);
+}
+
 /* Destinations Section */
-#destinations {
-    background-color: #fff;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-#destinations h2 {
-    font-size: 2.5rem;
-    color: #003d4d;
-    margin-bottom: 20px;
-}
-
-.destination-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-}
-
 .destination-item {
     border-radius: 10px;
     overflow: hidden;
@@ -170,89 +172,65 @@ nav a:hover {
     color: white;
 }
 
-/* Services Section */
-.services-section {
-    background: #f9f9f9;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.services-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.service {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    text-align: center;
-}
-
-.service:hover {
-    transform: translateY(-10px);
-}
-
-.service h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.service p {
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 50px 20px;
-    background: #003d4d;
-    color: white;
-    text-align: center;
-}
-
-.contact-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.contact-form button:hover {
-    background: #005f73;
-}
-
 /* Login Section */
-.login-section {
+.login-container {
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
     padding: 50px 20px;
-    background-color: #f9f9f9;
 }
 
-.login-section .container {
-    max-width: 400px;
-    margin: 0 auto;
+.login-box {
     background: #fff;
-    padding: 20px 30px;
-    border-radius: 10px;
+    padding: 30px 20px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
 }
 
-.login-form input:focus {
+.login-box h1 {
+    font-family: 'Grand Hotel', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #262626;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    background: #fafafa;
+}
+
+.login-box input:focus {
     border-color: #008cba;
     outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #3897f0;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #3182ce;
+}
+
+.forgot-password {
+    color: #00376b;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
 }

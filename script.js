@@ -61,7 +61,7 @@ const toggleScrollToTopBtn = () => {
     scrollToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
 };
 
-// Event Listeners
+// Event Listeners for Scroll Events
 window.addEventListener(
     'scroll',
     debounce(() => {
@@ -76,32 +76,98 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleScrollToTopBtn();
 });
 
-// Login Functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.querySelector('.login-form');
+// Selectors for Login Page Elements
+const loginForm = document.querySelector(".login-box form");
+const usernameInput = loginForm.querySelector('input[type="text"]');
+const passwordInput = loginForm.querySelector('input[type="password"]');
+const loginButton = loginForm.querySelector('button[type="submit"]');
+const forgotPasswordLink = document.querySelector(".forgot-password");
+const facebookLoginButton = document.querySelector(".facebook-login");
 
-    if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent form submission
+// Modal Elements
+const modal = document.getElementById("loginModal");
+const loginBtn = document.getElementById("loginBtn");
+const closeBtn = document.querySelector(".close");
 
-            // Get input values
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value.trim();
+// Open Modal when Login Button is Clicked
+loginBtn.onclick = function() {
+    console.log('Login button clicked!');
+    modal.style.display = "block";
+    console.log('Modal display property:', modal.style.display);
+}
 
-            // Validate inputs
-            if (!username || !password) {
-                alert('Please fill in both fields.');
-                return;
-            }
+// Close Modal when 'X' is Clicked
+closeBtn.onclick = function() {
+    console.log('Close button clicked!');
+    modal.style.display = "none";
+}
 
-            // Simulate login process
-            if (username === 'testuser' && password === '123456') {
-                alert('Login successful! Welcome to Explore World.');
-                // Redirect to the dashboard or another page
-                window.location.href = '/dashboard'; // Change this URL as needed
-            } else {
-                alert('Invalid username or password. Please try again.');
-            }
-        });
+// Close Modal if Clicked Outside Modal Content
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
+}
+
+// Form Validation
+loginForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent form from submitting
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (!username || !password) {
+        alert("Please enter both username and password.");
+        return;
+    }
+
+    // Simulate login success
+    alert(`Logged in as ${username}`);
+    loginForm.reset(); // Clear form inputs
+    toggleLoginButton(); // Update login button state
 });
+
+// Highlight Empty Fields on Blur
+[usernameInput, passwordInput].forEach((input) => {
+    input.addEventListener("blur", () => {
+        if (!input.value.trim()) {
+            input.style.border = "1px solid red";
+        } else {
+            input.style.border = "1px solid #dbdbdb";
+        }
+    });
+
+    input.addEventListener("input", () => {
+        input.style.border = "1px solid #dbdbdb"; // Reset border on typing
+    });
+});
+
+// Forgot Password
+forgotPasswordLink.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default link behavior
+    alert("Forgot Password feature is not implemented yet. Stay tuned!");
+});
+
+// Facebook Login
+facebookLoginButton.addEventListener("click", () => {
+    alert("Facebook login is currently unavailable.");
+});
+
+// Disable Login Button if Inputs are Empty
+const toggleLoginButton = () => {
+    if (usernameInput.value.trim() && passwordInput.value.trim()) {
+        loginButton.disabled = false;
+        loginButton.style.opacity = "1";
+    } else {
+        loginButton.disabled = true;
+        loginButton.style.opacity = "0.5";
+    }
+};
+
+// Attach Input Event Listeners
+[usernameInput, passwordInput].forEach((input) => {
+    input.addEventListener("input", toggleLoginButton);
+});
+
+// Initialize Login Button State
+toggleLoginButton();

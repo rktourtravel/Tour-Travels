@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,27 +8,25 @@
     <title>Explore World - Tour & Travel</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap">
 </head>
-
 <body>
     <!-- Header Section -->
     <header class="main-header">
         <div class="container">
             <h1 class="site-title">Explore World</h1>
-            <p class="tagline">Your gateway to amazing adventures</p>       
+            <p class="tagline">Your gateway to amazing adventures</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" aria-label="Go to Home section">Home</a></li>
+                    <li><a href="#destinations" aria-label="Go to Destinations section">Destinations</a></li>
+                    <li><a href="#services" aria-label="Go to Services section">Services</a></li>
+                    <li><a href="#about-us" aria-label="Go to About Us section">About Us</a></li>
+                    <li><a href="#login" aria-label="Go to Login section">Login</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <ul>
-            <li><a href="#home" aria-label="Go to Home section">Home</a></li>
-            <li><a href="#destinations" aria-label="Go to Destinations section">Destinations</a></li>
-            <li><a href="#services" aria-label="Go to Services section">Services</a></li>
-            <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
-            <li><a href="#login" aria-label="Go to Login section">Login</a></li>
-        </ul>
-    </nav>
     
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -40,66 +37,41 @@
         </div>
     </section>
 
-    <!-- Destinations Section -->
-    <section id="destinations" class="destinations-section">
-        <div class="container">
-            <h2 class="section-title">Our Destinations</h2>
+    <!-- Landscape Sections: Home, Destinations, Services, About Us -->
+    <div class="landscape-container">
+        <!-- Home Section -->
+        <section id="home" class="landscape-section">
+            <h2>Home</h2>
+            <p>Explore amazing vacation spots and tailor your travel plans.</p>
+        </section>
+
+        <!-- Destinations Section -->
+        <section id="destinations" class="landscape-section">
+            <h2>Destinations</h2>
+            <p>Discover stunning destinations across the world.</p>
             <div class="destination-gallery">
-                <!-- Existing Content -->
+                <img src="destination1.jpg" alt="Destination 1">
+                <img src="destination2.jpg" alt="Destination 2">
+                <img src="destination3.jpg" alt="Destination 3">
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Instagram-Style Login Section -->
-    <section id="login" class="login-section">
-        <div class="container">
-            <div class="login-container">
-                <div class="login-box">
-                    <h1 class="logo">Instagram</h1>
-                    <form>
-                        <input type="text" placeholder="Username or email" required>
-                        <input type="password" placeholder="Password" required>
-                        <button type="submit" class="login-btn">Log In</button>
-                    </form>
-                    <div class="separator">
-                        <span>OR</span>
-                    </div>
-                    <div class="social-login">
-                        <button class="facebook-login">Log in with Facebook</button>
-                    </div>
-                    <a href="#" class="forgot-password">Forgot password?</a>
-                </div>
-                <div class="signup-box">
-                    <p>Don't have an account? <a href="#">Sign up</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
+        <!-- Services Section -->
+        <section id="services" class="landscape-section">
+            <h2>Services</h2>
+            <p>We offer tour packages, hotel bookings, and travel consultation.</p>
             <!-- Existing Content -->
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+        <!-- About Us Section -->
+        <section id="about-us" class="landscape-section">
+            <h2>About Us</h2>
+            <p>Learn about our team and our commitment to your travel experiences.</p>
             <!-- Existing Content -->
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 Explore World - All Rights Reserved</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-
-</html>
+    <!-- Login Modal (Popup) -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span
