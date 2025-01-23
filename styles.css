@@ -37,11 +37,16 @@ header p {
     margin-top: 10px;
 }
 
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
 /* Navigation Bar */
 nav {
     position: sticky;
     top: 0;
-    background: #003d4d;
+    background-color: blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,11 +225,6 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-.contact-section p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -234,57 +234,25 @@ nav a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.contact-form label {
-    font-size: 1rem;
-    margin-bottom: 8px;
-    display: block;
-    color: #333;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.contact-form button {
-    width: 100%;
-    padding: 15px;
-    background: #008cba;
-    color: white;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
 .contact-form button:hover {
     background: #005f73;
 }
 
-/* Footer */
-footer {
-    background: #003d4d;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 1rem;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+/* Login Section */
+.login-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
 }
 
-/* Keyframes */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.login-section .container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.login-form input:focus {
+    border-color: #008cba;
+    outline: none;
 }
