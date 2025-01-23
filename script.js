@@ -11,19 +11,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Function to Add 'Fade-In' Animation to Elements as They Come Into View
 const fadeInElements = document.querySelectorAll('.hero-content, .destination-item, .service');
 
-const isElementInView = (el) => {
+const isElementPartiallyInView = (el) => {
     const rect = el.getBoundingClientRect();
     return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.bottom > 0
     );
 };
 
 const handleScroll = () => {
     fadeInElements.forEach(element => {
-        if (isElementInView(element)) {
+        if (isElementPartiallyInView(element)) {
             element.classList.add('in-view');
         } else {
             element.classList.remove('in-view');
@@ -31,15 +29,20 @@ const handleScroll = () => {
     });
 };
 
-window.addEventListener('scroll', handleScroll);
+// Debounce Function to Limit Scroll Event Calls
+const debounce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), delay);
+    };
+};
 
-// Run scroll handler initially to trigger animations for already-visible elements
-handleScroll();
-
-// Button Scroll to Top Functionality
+// Scroll-to-Top Button Setup
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.textContent = '↑';
 scrollToTopBtn.classList.add('scroll-to-top');
+scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
 document.body.appendChild(scrollToTopBtn);
 
 scrollToTopBtn.addEventListener('click', () => {
@@ -49,10 +52,23 @@ scrollToTopBtn.addEventListener('click', () => {
     });
 });
 
-window.addEventListener('scroll', () => {
+// Toggle Scroll-to-Top Button Visibility
+const toggleScrollToTopBtn = () => {
     if (window.scrollY > 300) {
         scrollToTopBtn.style.display = 'block';
     } else {
         scrollToTopBtn.style.display = 'none';
     }
+};
+
+// Event Listeners
+window.addEventListener('scroll', debounce(() => {
+    handleScroll();
+    toggleScrollToTopBtn();
+}, 50));
+
+// Initial State on Page Load
+document.addEventListener('DOMContentLoaded', () => {
+    handleScroll();
+    toggleScrollToTopBtn();
 });

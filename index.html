@@ -27,6 +27,7 @@
             <li><a href="#destinations" aria-label="Go to Destinations section">Destinations</a></li>
             <li><a href="#services" aria-label="Go to Services section">Services</a></li>
             <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
+            <li><a href="#login" aria-label="Go to Login section">Login</a></li>
         </ul>
     </nav>
 
@@ -44,19 +45,30 @@
         <div class="container">
             <h2 class="section-title">Our Destinations</h2>
             <div class="destination-gallery">
-                <article class="destination-item">
-                    <img src="bali.jpg" alt="Beautiful view of Bali, Indonesia">
-                    <h3>Bali</h3>
-                </article>
-                <article class="destination-item">
-                    <img src="paris.jpg" alt="Eiffel Tower in Paris, France">
-                    <h3>Paris</h3>
-                </article>
-                <article class="destination-item">
-                    <img src="maldives.jpg" alt="Tropical beach in the Maldives">
-                    <h3>Maldives</h3>
-                </article>
+                <!-- Existing Content -->
             </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="login-section">
+        <div class="container">
+            <h2 class="section-title">Login</h2>
+            <form action="/login" method="POST" class="login-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="extra-options">
+                    <a href="/forgot-password">Forgot Password?</a>
+                    <a href="/signup">Sign Up</a>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -64,21 +76,7 @@
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
-            <p class="section-description">We offer customized tour packages, hotel bookings, and travel consultations tailored to your needs.</p>
-            <div class="services-grid">
-                <article class="service">
-                    <h3>Customized Tours</h3>
-                    <p>Personalized travel experiences based on your preferences.</p>
-                </article>
-                <article class="service">
-                    <h3>Hotel Booking</h3>
-                    <p>Book the best accommodations worldwide at the best prices.</p>
-                </article>
-                <article class="service">
-                    <h3>Travel Consultation</h3>
-                    <p>Expert advice and recommendations for your next journey.</p>
-                </article>
-            </div>
+            <!-- Existing Content -->
         </div>
     </section>
 
@@ -86,20 +84,7 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <p class="contact-info">Email: <a href="mailto:rohittest02@gmail.com">rohittest02@gmail.com</a> | Phone: <a href="tel:+91987654321">+91-987654321</a></p>
-            <p class="contact-info">Address: 123 Adventure Lane, Travel City</p>
-            <form action="#" method="post" class="contact-form">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" placeholder="Write your message here" rows="4" required></textarea>
-
-                <button type="submit" class="btn-submit">Send Message</button>
-            </form>
+            <!-- Existing Content -->
         </div>
     </section>
 
